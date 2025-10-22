@@ -71,35 +71,6 @@ connect/
 │   │   ├── avatars/
 │   │   └── icons/
 │   └── fonts/
-│
-├── api/
-│   ├── events_api.php
-│   ├── resources_api.php
-│   ├── user_api.php
-│   ├── notifications_api.php
-│   └── dashboard_api.php
-│
-├── data/
-│   ├── connect.sql
-│   ├── students_sample.csv
-│   ├── faculty_sample.csv
-│   └── events_sample.csv
-│
-├── uploads/
-│   ├── student_resources/
-│   ├── faculty_resources/
-│   └── event_media/
-│
-├── logs/
-│   ├── access.log
-│   └── error.log
-│
-└── README.md
-
-
-
-
-
 
 
 -- ============================================
@@ -484,4 +455,5 @@ INSERT INTO attendance (student_id, faculty_id, subject, attendance_date, status
 (8, 3, 'Mechanics', '2025-10-24', 'Absent', 'Family emergency'),
 (9, 1, 'Algorithms', '2025-10-24', 'Present', ''),
 (10, 1, 'Data Structures', '2025-10-24', 'Absent', 'Medical');
+
 
