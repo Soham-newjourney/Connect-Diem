@@ -1,7 +1,7 @@
 /* ==========================================
    CONNECT - Complete CSS (Extended Version)
    Author: Connect Team
-   ~800 lines
+   ~2500 lines
    ========================================== */
 
 /* ---------------- Root Variables ---------------- */
@@ -592,6 +592,7 @@ body.dark-mode {
 .login-container form {
     display: flex;
     flex-direction: column;
+    
 }
 
 .input-wrapper {
@@ -639,6 +640,7 @@ body.dark-mode {
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease, transform 0.3s;
+    
 }
 
 .login-container form button:hover {
@@ -2500,21 +2502,6 @@ body.dark-mode {
     display: block;
     overflow-x: auto;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

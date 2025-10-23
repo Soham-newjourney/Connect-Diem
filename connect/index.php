@@ -6,7 +6,7 @@
         <div class="container hero-container">
             <div class="hero-text">
                 <h1>Welcome to Connect</h1>
-                <p>Your gateway to seamless learning, collaboration, and campus updates at IEM Kolkata.</p>
+                <p>Your gateway to seamless learning, collaboration, and campus updates at your Institute.</p>
                 <a href="student_login.php" class="btn btn-primary">Get Started</a>
             </div>
             <div class="hero-image">

@@ -1,14 +1,8 @@
 connect/
 ├── index.php
-├── home.php
-├── about.php
-├── events.php
-├── resources.php
-├── contact.php
 ├── student_login.php
 ├── faculty_login.php
 ├── admin_login.php
-├── forgot_password.php
 ├── logout.php
 │
 ├── dashboards/
@@ -29,15 +23,12 @@ connect/
 │       └── upload_resource.php
 │
 ├── faculty/
-│   ├── courses.php
-│   ├── performance.php
-│   ├── research.php
-│   ├── interactions.php
+│   ├── attendence.php
+│   ├── collaboration_doubts.php
 │   ├── events.php
-│   └── resources/
-│       ├── index.php
-│       ├── view_resource.php
-│       └── upload_resource.php
+│   ├── marks.php
+│   ├── notification.php
+│   └── resources.php
 │
 ├── admin/
 │   ├── user_management.php
@@ -50,27 +41,22 @@ connect/
 ├── includes/
 │   ├── header.php
 │   ├── footer.php
-│   ├── navbar.php
 │   ├── db.php
-│   ├── auth.php
-│   ├── session.php
-│   └── utils.php
+│   └── auth.php
 │
 ├── assets/
 │   ├── css/
 │   │   ├── style.css
-│   │   ├── dark.css
-│   │   └── dashboard.css
+│   │   └── jil.i.jpg
 │   ├── js/
-│   │   ├── main.js
-│   │   ├── theme.js
-│   │   └── dashboard.js
-│   ├── images/
-│   │   ├── logo.png
-│   │   ├── banners/
-│   │   ├── avatars/
-│   │   └── icons/
-│   └── fonts/
+│   │   └── main.js
+│
+└── README.md
+
+
+
+
+
 
 
 -- ============================================
@@ -78,11 +64,11 @@ connect/
 -- PROJECT: Connect (Institute of Engineering & Management, Kolkata)
 -- ============================================
 
--- 1️⃣ Create Database
+-- 1️ Create Database
 CREATE DATABASE IF NOT EXISTS connect_db;
 USE connect_db;
 
--- 2️⃣ Students Table
+-- 2️ Students Table
 CREATE TABLE students (
     student_id INT AUTO_INCREMENT PRIMARY KEY,
     roll_no VARCHAR(20) UNIQUE NOT NULL,
@@ -97,7 +83,7 @@ CREATE TABLE students (
     join_date DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- 3️⃣ Faculty Table
+-- 3️ Faculty Table
 CREATE TABLE faculty (
     faculty_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -110,7 +96,7 @@ CREATE TABLE faculty (
     join_date DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- 4️⃣ Admins Table
+-- 4️ Admins Table
 CREATE TABLE admins (
     admin_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -121,7 +107,7 @@ CREATE TABLE admins (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- 5️⃣ Attendance Table
+-- 5️ Attendance Table
 CREATE TABLE attendance (
     attendance_id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT NOT NULL,
@@ -134,7 +120,7 @@ CREATE TABLE attendance (
     FOREIGN KEY (faculty_id) REFERENCES faculty(faculty_id) ON DELETE CASCADE
 );
 
--- 6️⃣ Marks Table
+-- 6️ Marks Table
 CREATE TABLE marks (
     mark_id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT NOT NULL,
@@ -149,7 +135,7 @@ CREATE TABLE marks (
     FOREIGN KEY (faculty_id) REFERENCES faculty(faculty_id) ON DELETE SET NULL
 );
 
--- 7️⃣ Events Table
+-- 7️ Events Table
 CREATE TABLE events (
     event_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(200) NOT NULL,
@@ -166,7 +152,7 @@ CREATE TABLE events (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- 8️⃣ Event Registrations Table
+-- 8️ Event Registrations Table
 CREATE TABLE event_registrations (
     registration_id INT AUTO_INCREMENT PRIMARY KEY,
     event_id INT NOT NULL,
@@ -178,7 +164,7 @@ CREATE TABLE event_registrations (
     FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
 );
 
--- 9️⃣ Resources Table
+-- 9️ Resources Table
 CREATE TABLE resources (
     resource_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(200),
@@ -191,7 +177,7 @@ CREATE TABLE resources (
     FOREIGN KEY (faculty_id) REFERENCES faculty(faculty_id) ON DELETE SET NULL
 );
 
--- 🔟 Doubts Table
+-- 10 Doubts Table
 CREATE TABLE doubts (
     doubt_id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT NOT NULL,
@@ -206,7 +192,7 @@ CREATE TABLE doubts (
     FOREIGN KEY (faculty_id) REFERENCES faculty(faculty_id) ON DELETE SET NULL
 );
 
--- 11️⃣ Collaboration Table
+-- 11 Collaboration Table
 CREATE TABLE collaboration (
     post_id INT AUTO_INCREMENT PRIMARY KEY,
     author_type ENUM('student','faculty') NOT NULL,
@@ -217,7 +203,7 @@ CREATE TABLE collaboration (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- 12️⃣ Notifications Table
+-- 12 Notifications Table
 CREATE TABLE notifications (
     notification_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(150),
@@ -227,7 +213,7 @@ CREATE TABLE notifications (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- 13️⃣ Feedback Table
+-- 13 Feedback Table
 CREATE TABLE feedback (
     feedback_id INT AUTO_INCREMENT PRIMARY KEY,
     event_id INT,
@@ -412,11 +398,6 @@ INSERT INTO feedback (event_id,student_id,rating,comments) VALUES
 (8,9,5,'Amazing content'),
 (9,10,4,'Good insights');
 
--- Done ✅
--- 10 RECORDS POPULATED IN ALL TABLES
-
-
-
 
 
 
@@ -455,5 +436,3 @@ INSERT INTO attendance (student_id, faculty_id, subject, attendance_date, status
 (8, 3, 'Mechanics', '2025-10-24', 'Absent', 'Family emergency'),
 (9, 1, 'Algorithms', '2025-10-24', 'Present', ''),
 (10, 1, 'Data Structures', '2025-10-24', 'Absent', 'Medical');
-
-

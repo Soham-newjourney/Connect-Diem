@@ -17,13 +17,14 @@ define('ROOT_PATH', '/connect/'); // adjust if needed
     <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="<?php echo ROOT_PATH; ?>assets/js/main.js" defer></script>
+    <link rel="icon" href="assets/css/jil.i.jpg">
 </head>
 
 <body class="light-mode">
 <header>
     <div class="container header-container">
         <div class="logo">
-            <a href="<?php echo ROOT_PATH; ?>index.php">Connect</a>
+            <a href="<?php echo ROOT_PATH; ?>index.php">Connect-Diem</a>
         </div>
 
         <nav class="nav">
